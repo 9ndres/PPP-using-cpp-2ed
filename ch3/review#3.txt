@@ -1,0 +1,64 @@
+1. What is meant by the term prompt?
+It means to tell the user to input some characters.
+2. Which operator do you use to read into a variable?
+Equal sign operator '='.
+3. If you want the user to input an integer value into your program for a variable named number,
+what are two lines of code you could write to ask the user to do it and to input the value into your
+program?
+std::cout << "Enter a number'\n';
+std::cin >> number;
+4. What is \n called and what purpose does it serve?
+Its called 'new line' character and its name is self descriptive.
+5. What terminates input into a string?
+A new line, a space, a false bit signal(Ctrl-D, Ctrl-Z), and a tab.
+6. What terminates input into an integer?
+Anything that is not a number will terminate an int input.
+7. How would you write
+cout << "Hello, ";
+cout << first_name;
+cout << "!\n";
+as a single line of code?
+std::cout << "Hello, " << first_name << "!\n";
+8. What is an object?
+A region of memory with a type
+9. What is a literal?
+A representation of values.
+10. What kinds of literals are there?
+There are strings, characters and numbers.
+11. What is a variable?
+A named object.
+12. What are typical sizes for a char, an int, and a double?
+1 byte, 4 bytes and 8 bytes, respectively.
+13. What measures do we use for the size of small entities in memory, such as ints and strings?
+ Some of the measures we can use are bit, byte, "word", "double word" (DWORD) and "quadword" (QWORD)
+14. What is the difference between = and ==?
+The assign "=" operator assigns a value to an object, while the "equals" "==" operator returns the truth value (boolean) of a comparision between two objects.
+15. What is a definition?
+We could consider a definition as the introduction of a name into our program and the assigntion of memory to that variable.
+16. What is an initialization and how does it differ from an assignment?
+we can initializate a variable only once, while we can assign values to a variable as many times as we want, excluding variables that are constant expressions.
+17. What is string concatenation and how do you make it work in C++?
+String concatenation is taking two separate strings and turn it into a single string. we can do it with the '+' operator ex: 
+str1 += str2
+18. Which of the following are legal names in C++? If a name is not legal, why not?
+This_little_pig // legal
+latest thing // legal
+MiniMineMine // legal
+This_1_is fine // legal
+the_$12_method // illegal
+number // legal
+2_For_1_special // illegal
+_this_is_ok // legal
+correct? // illegal
+19. Give five examples of legal names that you shouldn’t use because they are likely to cause
+confusion.
+foo1, fool, S0MEVAR, _string, __this__
+20. What are some good rules for choosing names?
+Choose concise names, be descriptive, avoid overly short names, avoid innecesary large names, create enough distintion between your names.
+21. What is type safety and why is it important?
+To name a few type safety can help us preventing unexpected behaviors and preventing narrowing.
+22. Why can conversion from double to int be a bad thing?
+Because of narrowing.
+23. Define a rule to help decide if a conversion from one type to another is safe or unsafe.
+Using brace-initialization.
+Don't place objects that have bigger storage size into those that have smaller storage.
