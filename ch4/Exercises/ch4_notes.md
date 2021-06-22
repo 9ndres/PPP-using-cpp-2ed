@@ -35,4 +35,10 @@ When declaring a constepr variable we must keep in mind the following:
 
 [See more](https://en.cppreference.com/w/cpp/language/constexpr)
 
+## About vectors:
+
+Vectors are one of the most useful containers 
+specially it becomes very handy when we don't have a concrete number of the quantity of
+data elements that we want to store because.
+Its elements are stored contiguosly in memory meaning that we can access them through suscription of its index.
 
