@@ -17,4 +17,6 @@ int main() {
    std::cout << "Enter a integer to get its square\n";
    std::cin >> ival;
    std::cout << square(ival) << '\n';
+
+   return 0;
 }

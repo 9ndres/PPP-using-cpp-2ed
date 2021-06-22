@@ -26,4 +26,6 @@ int main() {
         <<"yen(y), kroner(k) and pounds(p)\n";
    std::cin >> quantity  >> currency;
    std::cout << cnyConverterSwitch(currency, quantity) << " dollars\n";
+
+   return 0;
 }
