@@ -2,5 +2,5 @@
 *.o
 *logfile
 *.out
-*[!].*
-
+*.cxx
+*.swp
