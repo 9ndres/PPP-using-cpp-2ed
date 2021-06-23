@@ -4,8 +4,7 @@
 
 // "BLEEPS" in the presence of disgusting words.
 std::vector<std::string> bleep(std::vector<std::string> ewords) {
-    using std::string;
-    std::vector<string> diswords { "duck", "beach", "sheet",
+    std::vector<std::string> diswords { "duck", "beach", "sheet",
         "uwu", "failure" };
 
     for (int i = 0; i < diswords.size(); i++) {
