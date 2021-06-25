@@ -1,5 +1,5 @@
 //  06/21/2021 
-// About: ex1.1 - ex1.4 snippets implement chapter 4 "try this" of "PPP using c++". 
+// About: ex1.1 - ex1.4 snippets implement chapter 4 "try this". 
 
 #include <iostream>
 #include <string>

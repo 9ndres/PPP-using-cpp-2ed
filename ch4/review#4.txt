@@ -1,0 +1,106 @@
+1. What is a computation?
+
+We can roughly say that a computation is producing an output in base of an input.
+
+2. What do we mean by inputs and outputs to a computation? Give examples.
+- Input: Data that our program receive. 
+For example:
+The arguments that are passed into a function.
+The hit of a key on a keyboadrd.
+A set of bits with special meaning.
+- Output: the result of a previous computation.
+A return statement.
+A rendered image.
+A voice message.
+
+3. What are the three requirements a programmer should keep in mind when expressing computations?
+Correctnes, simplicity, safety.
+
+4. What does an expression do?
+An expression is a computation.
+5. What is the difference between a statement and an expression, as described in this chapter?
+An statement is defined as "a basic unit of a program controlling the execution flow in a function, such as if-statement,
+for statement, expression statement, and declaration",
+while an expression is typically a function call, or an assigment.
+expressions can also be statements for example: 
+a++;
+
+6. What is an lvalue? List the operators that require an lvalue. Why do these operators, and not the
+others, require an lvalue?
+
+7. What is a constant expression?
+An expression that should not be changed, it's said to be a constant expression.
+
+8. What is a literal?
+A representation of values.
+
+9. What is a symbolic constant and why do we use them?
+A named object to which you can't give a new value once its initialized.
+
+10. What is a magic constant? Give examples.
+A value that we must not change that doesn't use the const specifier, or/and is not stored in a variable at all.
+clarify its purpose. For example:
+baz(2.3332812);
+int foo = 155499;
+
+11. What are some operators that we can use for integers and floating-point values?
++, -, =, *, /, <<, >>
+
+12. What operators can be used on integers but not on floating-point numbers?
+%, %=
+
+13. What are some operators that can be used for strings?
++. +=, <=, >=, ==, !=
+
+14. When would a programmer prefer a switch-statement to an if-statement?
+when choosing among multiple constant expressions that are of type char, int, or enum.
+
+15. What are some common problems with switch-statements?
+Is limited to integers, people often forget to use "break".
+
+16. What is the function of each part of the header line in a for-loop, and in what sequence are they
+executed?
+An initial declaration: mainly used to declare our iterator, a conditon: tells our loop when to stop, and a expression:
+mainly use to declare what operation should be performed to our iterator.
+
+17. When should the for-loop be used and when should the while-loop be used?
+"for" fits better when we need a temporary variable, or and iterate is needed, and "while" fits better when we need to loop until an statement and we don't need a temporary to loop.
+breaks our execution.
+
+18. How do you print the numeric value of a char?
+There are multiple ways, using "static_cast" or direcly storing our char inside an int can both accomplish the job.
+
+19. Describe what the line char foo(int x) means in a function definition.
+Declares a function of type char named foo that receives an int as its argument.
+
+20. When should you define a separate function for part of a program? List reasons.
+
+21. What can you do to an int that you cannot do to a string?
+basic arithmetic.
+
+22. What can you do to a string that you cannot do to an int?
+concatenate it.
+
+23. What is the index of the third element of a vector?
+foo[2]
+
+24. How do you write a for-loop that prints every element of a vector?
+for (const auto& e : foo) {
+   std::cout << e;
+}
+
+25. What does vector<char> alphabet(26); do?
+creates a vector of type char with 26 elements initialized with ''.
+
+26. Describe what push_back() does to a vector.
+places the element between "()" at the end of our vector.
+
+27. What does vector’s member size() do?
+Returns the quantity of elements stored in a vector.
+
+28. What makes vector so popular/useful?
+To mention a few, the fact that it help us to store any kind of object and store it in a contiguos way
+while being able to dinamically manipulate it without having to worry about memory leaks.
+
+29. How do you sort the elements of a vector?
+There are multiple ways to sort a vector but "sort()" is the defacto.

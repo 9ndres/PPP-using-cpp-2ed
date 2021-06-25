@@ -1,4 +1,4 @@
-// This file is just me playing around obviously is just an overkill of a simple task and 
+// This file just me playing around obviously is just an overkill of a simple task and 
 // should not be considered a good practice.
 
 #include <iostream>
