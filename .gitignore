@@ -4,3 +4,5 @@
 *.out
 *.cxx
 *.swp
+*.swn
+*.swo
