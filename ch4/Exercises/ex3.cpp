@@ -1,5 +1,5 @@
 // 06/23/2021
-// Even though this exercise could've been done with std::array 
+// Even though this exercise could've been done with std::array or even without any container
 // exercise instructions specify the use of std::vector
 
 #include <iostream>
