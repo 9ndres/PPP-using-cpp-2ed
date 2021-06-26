@@ -15,14 +15,9 @@ int main() {
       routes.push_back(city);
    }
    
-   if (routes[0] < routes[1]) {
-      std::cout << "The smallest distance is: " << routes[0] << " and the greatest is: " << routes[1];   
-   } else {
-      std::cout << "The smallest distance is: " << routes[1] << " and the greatest is: " << routes[0];   
-   }
-   
-   std::cout << "\nThe total distance is: " << routes[0] + routes[1] << '\n';
-   // to implement: calculate the mean and print it
+   std::cout << "The smalles distance is: " << std::min(routes[0], routes[1]) << '\n';
+   std::cout << "The largest distance is: " << std::max(routes[0], routes[1]) << '\n';
+   std::cout << "And the mean is: " << (routes[0] + routes[1]) / 2 << '\n';
    return 0;
    
 }
