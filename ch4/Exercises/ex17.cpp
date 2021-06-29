@@ -7,8 +7,7 @@
 int findMode(std::vector<std::string> stngs) {
       int counter = 0;
       for (int i = 0; i < stngs.size(); i++) {
-         if (stngs[i] == stngs[i+1]) {
-            
+         // todo: find mode.
          }
       }
       return counter;
