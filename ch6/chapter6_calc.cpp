@@ -4,30 +4,13 @@
 
 
 double term();
-double expression();
 double primary();
-
-Token get_token() {
-	char ch;
-	std::cin >> ch;
-	switch (ch) {
-	case ')': case '(': case '+': case '-': case '/': case '*':
-		return Token(ch);
-
-	case '0': case '1': case '2': case '3': case '4': case '5': 
-	case '6': case '7': case '8': case '9': {
-		double value;
-		std::cin.putback(ch);
-		std::cin >> value;
-		return Token('8', value);
-	}
-	default: throw BadExpr{ "Bad Token" };
-	}
-}
+Token_stream ts;
 
 double expression() {
 	double left = term();
 	Token t = ts.get();
+
 	while (true) {
 		switch (t.kind) {
 		case '+':
@@ -39,7 +22,7 @@ double expression() {
 			t = ts.get();
 			break;
 		default:
-			ts.putback();
+			ts.putback(t);
 			return left;
 		}
 	}
@@ -48,6 +31,7 @@ double expression() {
 double term() {
 	double left = primary();
 	Token t = ts.get();
+
 	while (true) {
 		switch (t.kind) {
 		case '*':
@@ -62,7 +46,7 @@ double term() {
 			break;
 		}
 		default:
-			ts.putback();
+			ts.putback(t);
 			return left;
 		}
 	}
@@ -73,7 +57,7 @@ double primary() {
 	switch (t.kind) {
 	case '(' : {
 		double d = expression();
-		t = get_token();
+		t = ts.get();
 		if (t.kind != ')') { throw BadExpr{ "')' expected " }; }
 		return d;
 	}
@@ -85,8 +69,10 @@ double primary() {
 }
 
 int main() {
+	double val = 0;
+	//Token_stream ts;
+
 	try {
-		double val = 0;
 		while (std::cin) {
 			Token t = ts.get();
 			if (t.kind == 'q') { break; }
