@@ -1,4 +1,4 @@
-![swan](PPP-using-cpp-2ed/swnimg.png)
+![swan](https://github.com/9ndres/PPP-using-cpp-2ed/blob/main/swnimg.png)
 # PPP using C++ 2ed Exercises and Answers.
 
 ## About
