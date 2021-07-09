@@ -1,6 +1,6 @@
 ![swan](https://github.com/9ndres/PPP-using-cpp-2ed/blob/main/swnimg.png)
 # PPP using C++ 2ed Exercises and Answers.
-
+https://img.shields.io/github/last-commit/9ndres/PPP-using-cpp-2ed?style=plastic
 ## About
 When I was searching how to properly learn C++, I crossed with some smart fellas that point me to this book as one of the best ways to get started, After reading some chapters I thought that documenting the process would be a good idea so here it is.
 This repository documents my **personal** solutions of almost every exercise on this book as well as some of the reviews and drills. 
