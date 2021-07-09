@@ -1,4 +1,3 @@
-https://img.shields.io/github/last-commit/9ndres/PPP-using-cpp-2ed?style=plastic
 ![swan](https://github.com/9ndres/PPP-using-cpp-2ed/blob/main/swnimg.png)
 # PPP using C++ 2ed Exercises and Answers.
 
