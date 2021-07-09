@@ -1,11 +1,19 @@
-﻿#include <string>
+﻿// This program covers ex2 and ex3 
+// Todo: add factorial precedence
+#include <string>
 #include <vector>
 #include "chapter6_calc.h"
-
 
 double term();
 double primary();
 Token_stream ts;
+
+int factorial(int n) {
+	while (n > 1) {
+		return n * factorial(n - 1);
+	}
+	return 1; // if n == 0
+}
 
 double expression() {
 	double left = term();
@@ -45,6 +53,12 @@ double term() {
 			t = ts.get();
 			break;
 		}
+		
+		case '!': {
+			int x = static_cast<int>(left);
+			return factorial(x);
+		}
+		
 		default:
 			ts.putback(t);
 			return left;
@@ -55,6 +69,13 @@ double term() {
 double primary() {
 	Token t = ts.get();
 	switch (t.kind) {
+	case '{': {
+		double d = expression();
+		t = ts.get();
+		if (t.kind != '}') { throw BadExpr{ "'}' expected" }; }
+		return d;
+	}
+
 	case '(' : {
 		double d = expression();
 		t = ts.get();
@@ -63,6 +84,9 @@ double primary() {
 	}
 	case '8':
 		return t.value;
+	case 'q' :
+		ts.putback(t);
+		break;
 	default:
 		throw BadExpr{ "(primary expected)" };
 	}

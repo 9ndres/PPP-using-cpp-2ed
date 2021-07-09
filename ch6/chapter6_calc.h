@@ -32,18 +32,18 @@ private:
 	Token buffer;
 };
 
-Token_stream::Token_stream()
+inline Token_stream::Token_stream()
 	:full{ false }, buffer{ 0 }
 {
 }
 
-void Token_stream::putback(Token t) {
+inline void Token_stream::putback(Token t) {
 	if (full) { throw BadExpr{ "putback() into a full buffer" }; }
 	full = true;
 	buffer = t;
 }
 
-Token Token_stream::get() {
+inline Token Token_stream::get() {
 	if (full) {
 		full = false;
 		return buffer;
@@ -53,9 +53,9 @@ Token Token_stream::get() {
 	std::cin >> ch;
 
 	switch (ch) {
-	case ';':
-	case 'q':
-	case '(': case ')': case '+': case '-': case '*': case '/':
+	case ';': case 'q':
+	case '{': case '}':
+	case '(': case ')': case '+': case '-': case '*': case '/': case '!':
 		return Token{ ch };
 	case '.':
 	case '0': case '1': case '2': case '3': case '4':
