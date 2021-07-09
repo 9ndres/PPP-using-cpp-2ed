@@ -7,14 +7,14 @@
 - double: Stands for double-precision floating point.A float is 4 bytes and a double 8 bytes (In most modern computers)
 - Literals: A literal is a representation of values of various types.
 
-##Basic rules of thumb:
+### Basic rules of thumb:
 
 - Keep simple things simple. KSTS
 - Don't start things from scratch unless you have to.
 - Don't give your variables simplified names, like "y5", "wmm", "xf" and so on, neither use "way_to_long_variable_names", try to
 - be as concise and descriptive as possible, some examples: "firstName", "month" and so on.
 
-## General notes
+### General notes
 Note:c++ 14, allows you to represent numeric literals with single quotes as digit separator. ex:
 int x = 100'2111; // ok
 you can also represent binary literals by prefixing 0b before your literal ex:
@@ -29,7 +29,7 @@ You can only use letters and underscores at the start of an identifier, numbers 
     `char` to `int`
     `char` to `double`
     table 1
-###Unsafe conversions
+### Unsafe conversions
 This kind of conversions are also called **narrowing conversions**, because they try to fit a value that is to large into an object that
 may be too  **narrow**. A table of unsafe conversions could be obtained by inversing table 1 that is `double` to  `int` and so on,
 To outlaw narrowing conversions we can use brace-initialization thus
