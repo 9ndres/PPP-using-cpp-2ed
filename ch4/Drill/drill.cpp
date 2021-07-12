@@ -1,49 +1,40 @@
 // 06/22/2021
-// Purpose: Practice the use of loops and the use of std::vector.
+// Revisit: 07/12/2021
+// Purpose: Converts between units.
+// Input: A digit plus an unit, finish with illegal input.
+// Output: An accumulator, largest value, smallest value.
+
 #include <iostream>
 #include <vector>
 #include <string>
-#include <algorithm>
+#include <algorithm> // std::sort
+#include <numeric> // std::accumulate
 
-// convert unit to its equivalent in m.
-double unitConverter(double size, std::string unit) {
+double unitConverter(double& size, const std::string& unit) {
    constexpr double meters = 100, inches = 2.54, feets = inches * 12;
-
-   if (unit == "cm") {
-      size /= meters;
-   } else if (unit == "in") {
-      size = (size / inches) / meters;
-   } else if (unit == "ft") {
-      size = (size / feets) / meters;
-   } else if (unit == "m") {
-      return size;   
-   } else {
-      return -1;   
-   }
+   if (unit == "cm") { size /= meters; }
+   else if (unit == "in") { size = (size / inches) / meters; }
+   else if (unit == "ft") {  size = (size / feets) / meters; }
    return size;
 }
 
 int main() {
-
-   std::string unit;
    std::vector <double> vValues;
-   double value = 0;
+   std::string unit;
 
-   while(std::cin >> value >> unit) {
-      double validDigit = unitConverter(value, unit);
-      if (validDigit > 0) {
-         vValues.push_back(validDigit);
-      }
+   for (double value; std::cin >> value >> unit;) {
+       vValues.push_back(unitConverter(value, unit));
    }
 
-   sort(std::begin(vValues), std::end(vValues));
-
-   double sum = 0;
+   // Print sorted vValues
+   std::sort(vValues.begin(), vValues.end());
    for (const auto& x : vValues) {
       std::cout << x << " m\n";
-      sum += x;
    }
 
-   std::cout << "the sum of the entered values is: " << sum << " m\n";
+   double sum = std::accumulate(vValues.begin(), vValues.end(), 0);
+   std::cout << "The sum of the entered values is: " << sum << " m\n"
+             << "The smallest value is " << vValues[0] << "m\n"
+             << "And the largest value is " << vValues[vValues.size()-1] << "m\n";
    return 0;
 }
