@@ -1,6 +1,6 @@
-#include <iostream>
+// Purpose: Provoke syntax errors and analyze its output
 
-int main(){
+int main() {
     int double x; // error two or more data types in declaration of 'x'
     foo int y; // foo was not declared in ths scope
     int 9z; // expected unqualified-id before numerci constant

@@ -1,9 +1,8 @@
 #include <iostream>
 #include <string>
-#include <cmath>
+#include <cmath> // std::sqrt
 
-void nameAndAge()
-{
+void nameAndAge() {
     std::cout << "Please enter your name and age\n";
     std::string first_name{"???"};
     double age = 0;
@@ -12,8 +11,7 @@ void nameAndAge()
     std::cout << "Hello, " << first_name << ' ' << "(age " << age << " months)\n";
 }
 
-void basicArithmetic()
-{
+void basicArithmetic() {
     std::cout << "Please enter a floating point value: ";
     double floatValue;
     std::cin >> floatValue;
@@ -25,20 +23,16 @@ void basicArithmetic()
               << "square root of floatValue = " << std::sqrt(floatValue) << '\n';
 }
 
-void repeatedWord()
-{
+void repeatedWord() {
     std::string previous;
     std::string current;
 
-    while(std::cin>>current && current != ";"){
-
-        if(previous == current){
-            std::cout << current << '\n';
-        }
-
+    while (std::cin>>current && current != ";") {
+        if(previous == current) { std::cout << current << '\n'; }
         previous = current;
     }
 }
+
 /*
 void goodByeCruelWorld()
 {
@@ -47,8 +41,7 @@ void goodByeCruelWorld()
 }
 */
 
-void narrowingConversion()
-{
+void narrowingConversion() {
     double d = 0;
     std::cout << "enter a decimal number: ";
     while(std::cin>>d){
@@ -61,8 +54,8 @@ void narrowingConversion()
               << i2 << '\n';
     }
 }
-int main()
-{
+
+int main() {
     nameAndAge();
     basicArithmetic();
     repeatedWord();

@@ -5,6 +5,5 @@ int main(){
     int miles;
     std::cin >> miles;
     std::cout << miles * 1.6 <<'\n';
-
     return 0;
 }
