@@ -1,0 +1,94 @@
+1. What do we mean by “Programming is understanding”?
+When we want to program something we have to understand what is that we want to code thus
+in this search inevitably we replace our initial perspective with a more knowledgeable one.
+
+2. The chapter details the creation of a calculator program. Write a short analysis of what the
+calculator should be able to do.
+Our calculator should be able to extract digits and operators (tokenize) from its input
+store them in a buffer and produce a correct result. It can handle addition, substraction,
+multiplication and division.
+
+3. How do you break a problem up into smaller manageable parts?
+By dividing our logic into smaller pieces that we know how to solve, and repeating this process over all our
+problem.
+
+4. Why is creating a small, limited version of a program a good idea?
+Because it gives us an insight of what can be done and what could overcomplicate our program and can be leaved to
+a more mature stage.
+
+5. Why is feature creep a bad idea?
+Because it can quickly grow our program into an unmanageble mess and duplicate the original size.
+
+6. What are the three main phases of software development?
+Analysis, design, implementation.
+
+7. What is a “use case”?
+Examples of how we or our users would interact with our program.
+
+8. What is the purpose of testing?
+Methodologically verifying that our program produces correct computations and comparing what
+output produces with wrong input.
+
+9. According to the outline in the chapter, describe the difference between a Term, an Expression, a
+Number, and a Primary.
+An expression is recursively an expression plus a term;
+A term is recursively a term plus a Primary
+A primary is a number or a set of parenthesis enclosing an expresion.
+A number is a floating-point-literal.
+
+10. In the chapter, an input was broken down into its component Terms, Expressions, Primarys, and
+Numbers. Do this for (17+4)/(5–1).
+
+11. Why does the program not have a function called number()?
+Because Token_stream::get() already handles the assignation of a number into a double;
+
+12. What is a token?
+A way to represent a concept in code
+
+13. What is a grammar? A grammar rule?
+A way of defining what is an entity and how is composed of other related entities,
+as well as the rules they are bound to.
+
+14. What is a class? What do we use classes for?
+A class is a user defined type, we use it to express in a more direct way ideas in our code.
+
+15. How can we provide a default value for a member of a class?
+By specifying its value in the class definition.
+
+16. In the expression function, why is the default for the switch-statement to “put back” the token?
+Because if noone of the previous cases were supplied we just send back our read to val so it can be printed out.
+
+17. What is “look-ahead”?
+
+18. What does putback() do and why is it useful?
+"Put backs" our read into the reading buffer so next time we read that would get automatically fetched.
+
+19. Why is the remainder (modulus) operation, %, difficult to implement in the term()?
+Because the mathematic notion of remainder is only applicable to integers and in term we operate over 
+double floating point numbers.
+
+20. What do we use the two data members of the Token class for?
+To store a valua and an operator.
+21. Why do we (sometimes) split a class’s members into private and public members?
+Because we don't want some members of our class to be messed with.
+
+22. What happens in the Token_stream class when there is a token in the buffer and the get()
+function is called?
+An exeption would get called.
+
+23. Why were the ';' and 'q' characters added to the switch-statement in the get() function of the
+Token_stream class?
+Because otherwise get() would throw an error.
+
+24. When should we start testing our program?
+As soon as it can produce an output.
+
+25. What is a “user-defined type”? Why would we want one?
+To represent ideas directly in our code.
+
+26. What is the interface to a C++ “user-defined type”?
+The interface is the "channel" in which our users interact with our type.
+is defined bellow 'public:'
+
+27. Why do we want to rely on libraries of code?
+Because it helps us reduce the amount of work that needs to be done.
