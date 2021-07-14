@@ -3,9 +3,9 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-project ("chapter6_calc")
+project ("Calculator")
 
 # Add source to this project's executable.
-add_executable (chapter6_calc "chapter6_calc.cpp" "chapter6_calc.h")
+add_executable (Calculator "Calculator.cpp" "Tokenize.h")
 
 # TODO: Add tests and install targets if needed.
