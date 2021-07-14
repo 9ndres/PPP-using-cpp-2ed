@@ -1,4 +1,0 @@
-Linking:
- Linking is known as the process of taking different translation units, compile them and ~link~
-the resultant object files into one binary (executable file)
-
