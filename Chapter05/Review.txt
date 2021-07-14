@@ -1,0 +1,88 @@
+1. Name four major types of errors and briefly define each one.
+Logic errors: Erros implemented in the design of the program.
+
+Compile Errors: roughly speaking compile errors are the following:
+syntactical errors, semantical errors, and mismatching definitions.
+
+Linker Errors: Those that occur when gathering the necessary files to produce our binary. ex: a function that is not
+defined, a header file that was not included.
+
+Runtime Errors: Errors that occur when executing our program; for example int overflow, infinite loops.
+
+2. What kinds of errors can we ignore in student programs?
+Noone if you start learning that we can just ignore errors,
+you'll develop a set of bad practices.
+
+3. What guarantees should every completed project offer?
+
+4. List three approaches we can take to eliminate errors in programs and produce acceptable
+software.
+De-nesting a program is a good start.
+Testing earlier and often while the development of our project.
+Debugging.
+
+5. Why do we hate debugging?
+Because often means long sessions of staring at the screen trying to figure out why our program doesn't produce
+the right output.
+
+6. What is a syntax error? Give five examples.
+An error produced because we misspelled a keyword or place it in the wrong place.
+
+7. What is a type error? Give five examples.
+
+int x = "foo";
+char z = 1222.1'
+std::string i = Foo;
+double j = "22.11";
+int x { j };
+
+8. What is a linker error? Give three examples.
+A linker error is when the linker can not gather all that it needs to produce the binary.
+Forgetting to include a header
+not refering to the right namespace
+forgetting to define a function.
+
+9. What is a logic error? Give three examples.
+An error produced in the desing of our logic.
+Taking the wrong approach to solve a problem.
+Executing things in the wrong order.
+
+10. List four potential sources of program errors discussed in the text.
+
+11. How do you know if a result is plausible? What techniques do you have to answer such questions?
+
+12. Compare and contrast having the caller of a function handle a run-time error vs. the called
+function’s handling the run-time error.
+
+13. Why is using exceptions a better idea than returning an “error value”?
+Because error values do not own the execution flow, thus can be ignored.
+14. How do you test if an input operation succeeded?
+Because it produced the right output.
+
+15. Describe the process of how exceptions are thrown and caught.
+When we place an statement inside a try block it can actionate the catch block when an exception
+happens
+
+16. Why, with a vector called v, is v[v.size()] a range error? What would be the result of calling this?
+"Outside of bounds error", is produce because we try to read elements 
+that are not in the range of the vector we created.
+
+17. Define pre-condition and post-condition; give an example (that is not the area() function from this
+chapter), preferably a computation that requires a loop.
+A pre-condition is what we expect as an input in order to compute a result that is accord our needs;
+
+18. When would you not test a pre-condition?
+when you don't expect any arguments.
+
+19. When would you not test a post-condition?
+When you don't expect any return statement
+
+20. What are the steps in debugging a program?
+Try to reproduce the desired behavior on small scale and compare your results.
+
+21. Why does commenting help when debugging?
+Because it helps clarifying what can not be expressed through code.
+
+22. How does testing differ from debugging?
+Debugging consists on searching why our program doesn't do what we expect, testing consists on systematically inputting
+values to our program to compare its output.
