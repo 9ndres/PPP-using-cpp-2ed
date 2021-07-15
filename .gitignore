@@ -7,3 +7,4 @@
 *.swn
 *.swo
 build/
+out/
