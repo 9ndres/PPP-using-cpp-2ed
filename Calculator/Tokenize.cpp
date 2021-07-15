@@ -1,17 +1,17 @@
 #include "Tokenize.h"
 
-inline Token_stream::Token_stream()
+Token_stream::Token_stream()
 	:full{ false }, buffer{ 0 }
 {
 }
 
-inline void Token_stream::putback(Token t) {
+void Token_stream::putback(Token t) {
 	if (full) { throw BadExpr{ "putback() into a full buffer" }; }
 	full = true;
 	buffer = t;
 }
 
-inline Token Token_stream::get() {
+Token Token_stream::get() {
 	const char NUMBER = '8';
 
 	if (full) {
