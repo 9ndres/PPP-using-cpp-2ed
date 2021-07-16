@@ -1,32 +1,37 @@
 ﻿// This program covers ex2 and ex3 
-// Todo: add factorial precedence
+// TODO: Add factorial precedence
 #include <string>
 #include <vector>
-#include "chapter6_calc.h"
+#include <cmath> // std::fmod
+#include "Tokenize.h"
 
-double term();
-double primary();
+double Term();
+double Primary();
 Token_stream ts;
 
-int factorial(int n) {
-	while (n > 1) {
-		return n * factorial(n - 1);
+double Statement() {
+	Token t = ts.get();
+	switch (t.kind) {
+	case let :
+		return Declaration();
+	default:
+		ts.putback(t);
+		return Expression();
 	}
-	return 1; // if n == 0
 }
 
-double expression() {
-	double left = term();
+double Expression() {
+	double left = Term();
 	Token t = ts.get();
 
 	while (true) {
 		switch (t.kind) {
 		case '+':
-			left += term();
+			left += Term();
 			t = ts.get();
 			break;
 		case '-':
-			left -= term();
+			left -= Term();
 			t = ts.get();
 			break;
 		default:
@@ -36,29 +41,38 @@ double expression() {
 	}
 }
 
-double term() {
-	double left = primary();
+double Term() {
+	double left = Primary();
 	Token t = ts.get();
 
 	while (true) {
 		switch (t.kind) {
 		case '*':
-			left *= primary();
+			left *= Primary();
 			t = ts.get();
 			break;
 		case '/': {
-			double d = primary();
+			double d = Primary();
 			if (d == 0) { throw BadExpr{ "divide by zero" }; }
 			left /= d;
 			t = ts.get();
 			break;
 		}
-		
+
 		case '!': {
 			int x = static_cast<int>(left);
 			return factorial(x);
 		}
-		
+		case '%': {
+			double d = Primary();
+			if (!d) {
+				throw BadExpr{ "division by zero" };
+			}
+			left = std::fmod(left, d);
+			t = ts.get();
+			break;
+		}
+
 		default:
 			ts.putback(t);
 			return left;
@@ -66,25 +80,30 @@ double term() {
 	}
 }
 
-double primary() {
+double Primary() {
+	const char NUMBER = '8';
 	Token t = ts.get();
 	switch (t.kind) {
 	case '{': {
-		double d = expression();
+		double d = Expression();
 		t = ts.get();
 		if (t.kind != '}') { throw BadExpr{ "'}' expected" }; }
 		return d;
 	}
 
-	case '(' : {
-		double d = expression();
+	case '(': {
+		double d = Expression();
 		t = ts.get();
 		if (t.kind != ')') { throw BadExpr{ "')' expected " }; }
 		return d;
 	}
-	case '8':
+	case NUMBER:
 		return t.value;
-	case 'q' :
+	case '-':
+		return -Primary();
+	case '+':
+		return Primary();
+	case 'q':
 		ts.putback(t);
 		break;
 	default:
@@ -92,25 +111,36 @@ double primary() {
 	}
 }
 
-int main() {
-	double val = 0;
-	//Token_stream ts;
+void Calculate() {
+	const char QUIT = 'q', PRINT = ';';
+	const std::string PROMPT = "> ", RESULT = "= ";
 
-	try {
-		while (std::cin) {
-			Token t = ts.get();
-			if (t.kind == 'q') { break; }
-			if (t.kind == ';') {
-				std::cout << "> " << val << '\n';
-			}
-			else {
-				ts.putback(t);
-			}
-			val = expression();
+	while (std::cin) {
+		std::cout << PROMPT;
+		Token t = ts.get();
+		while (t.kind == PRINT) {
+			t = ts.get();
 		}
+		if (t.kind == QUIT) {
+			return;
+		}
+		ts.putback(t);
+		std::cout << RESULT << Statement() << '\n';
+	}
+}
+
+int main() {
+	std::vector<Variable> var_table;
+	try {
+		Calculate();
+		return 0;
 	}
 	catch (BadExpr& e) {
 		std::cerr << e.what() << '\n';
 		return -1;
+	}
+	catch (...) {
+		std::cerr << "exception\n";
+		return 2;
 	}
 }
