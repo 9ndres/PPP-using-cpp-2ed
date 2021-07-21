@@ -6,6 +6,9 @@
 *.swp
 *.swn
 *.swo
+*.cmake
 build/
 out/
+CMakeFiles/
+Makefile
 .vs/
