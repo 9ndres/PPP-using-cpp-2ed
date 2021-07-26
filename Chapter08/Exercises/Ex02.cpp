@@ -4,7 +4,7 @@
 
 using std::vector;
 
-void print(const vector<int> &vi, std::string s) {
+void print(const vector<int>& vi, const std::string& s) {
   for (const auto &e : vi) {
     std::cout << s << ' ' << e << '\n';
   }
