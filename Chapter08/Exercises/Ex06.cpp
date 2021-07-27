@@ -1,6 +1,5 @@
 // 07/27/2021
 // Purpose: Swap by value and by reference a vector of strings 
-#include <iostream>
 #include <vector>
 #include <algorithm> //std::swap, std::reverse
 

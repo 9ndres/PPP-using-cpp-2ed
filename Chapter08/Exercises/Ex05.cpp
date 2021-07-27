@@ -1,6 +1,5 @@
 // 07/26/2021
 // Purpose: Swap by value and by reference a vector of ints
-#include <iostream>
 #include <vector>
 #include <algorithm> //std::swap, std::swap
 
