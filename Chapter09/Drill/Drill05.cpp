@@ -1,7 +1,7 @@
 // 08/11/2021
 // Purpose: Creates a type Date, provides methods to get its values
 // as well as a constructor to define them. Makes explicit that Date::year,
-// Date::month and Date::day should not modife the object
+// Date::month and Date::day should not modify the object
 
 enum class Month {
     jan = 1, feb, mar, apr, may, jun, jul, aug, sep, oct,
@@ -30,11 +30,11 @@ int Date::day() const {
     return d;
 }
 
-int Date::year() {
+int Date::year() const {
     return y;
 }
 
-Month Date::month() {
+Month Date::month() const {
     return m;
 }
 
