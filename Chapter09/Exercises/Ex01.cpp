@@ -1,6 +1,8 @@
+// 08/18/2021
 #include <vector>
 #include <iostream>
 #include <string>
+#include <algorithm> // std::swap
 using std::vector;
 using std::string;
 
@@ -10,13 +12,14 @@ class Name_pairs {
 public:
    void read_ages();
    void print();
-   void sort();
+   void sort_na();
 private:
    vector<string> name;
    vector<double> age;
 };
 
 void Name_pairs::read_ages() {
+   // Read and push a double and a string
    double a;
    string n;
    std::cin >> n >> a;
@@ -29,7 +32,7 @@ void Name_pairs::print() {
    // the same size ::read_ages ensures that this requirement is met
 
    if(!name.size()) {
-      throw;
+      throw; // Don't print empty vectors
    }
 
    for (auto x = 0; x < name.size(); ++x) {
@@ -37,9 +40,15 @@ void Name_pairs::print() {
   }
 }
 
-void Name_pairs::sort() {
+void Name_pairs::sort_na() {
+   // sort ::name vector and preserve the original order
    for (auto i = 0; i < name.size(); ++i) {
-      if ()
+       for (auto j = 0; j < name.size() - 1; ++j) {
+          if (name[j] > name[j + 1]) {
+             std::swap(name[j], name[j + 1]);
+             std::swap(age[j], age[j + 1]);
+          }
+       }
    }
 }
 
@@ -48,5 +57,6 @@ int main() {
    for(auto x = 0; x < 5; ++x) {
       np.read_ages();
    }
+   np.sort_na();
    np.print();
 }
