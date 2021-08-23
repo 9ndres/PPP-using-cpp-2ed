@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include "Date.h"
 
 struct ISBN {
 	ISBN(const long& is);
