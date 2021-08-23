@@ -1,15 +1,18 @@
 #pragma once
 #include <string>
+#include <iostream>
 
 struct ISBN {
 	ISBN(const long& is);
+	bool is_valid() { return valid; }
 private:
 	long barcode{};
-	bool is_valid = false;
+	bool valid = false;
 };
 
 struct Book {
-	Book(const std::string& a, const std::string& b, const ISBN& is);
+	// represent a book in the format author, title, 
+	Book(const std::string& a, const std::string& t, const ISBN& is);
 	std::string get_title() { return title; }
 	std::string get_author() { return author; }
 private:
