@@ -1,3 +1,6 @@
+// Provide static dates 
+// YY/Month::month/DD
+
 #pragma once
 #include <iostream>
 

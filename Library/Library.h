@@ -1,23 +1,38 @@
+// 08/23/2021
+// Purpose: provide a way to register a book as well as methods to interact
+// with book's metadata
+
 #pragma once
 #include <string>
 #include <iostream>
 #include "Date.h"
 
 struct ISBN {
+	// Store isbn number and check its validity
 	ISBN(const long& is);
 	bool is_valid() { return valid; }
+	long get_isbn() const { return barcode; }
 private:
 	long barcode{};
 	bool valid = false;
 };
 
 struct Book {
-	// represent a book in the format author, title, 
+	// Represent a book in the format author, title, and isbn
 	Book(const std::string& a, const std::string& t, const ISBN& is);
-	std::string get_title() { return title; }
-	std::string get_author() { return author; }
+	// getters
+	std::string get_title() const { return title; }
+	std::string get_author() const { return author; }
+	ISBN get_isbn() const { return isbn.get_isbn(); }
+	
+	// setters 
+	void set_copyright_date(Date d) { copyright_date = d; }
+	// operators
+	// check if two books are equal in base of its isbn code
+	friend bool operator==(Book& a, Book& b);
 private:
 	std::string title;
 	std::string author;
 	ISBN isbn;
+	Date copyright_date{ 2000, Month::apr, 10 };
 };
