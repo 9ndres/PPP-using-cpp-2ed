@@ -28,8 +28,9 @@ struct Book {
 	// setters 
 	void set_copyright_date(Date d) { copyright_date = d; }
 	// operators
-	// check if two books are equal in base of its isbn code
 	friend bool operator==(Book& a, Book& b);
+	friend bool operator!=(Book& a, Book& b);
+	friend std::ostream& operator<<(std::ostream& os, const Book& a);
 private:
 	std::string title;
 	std::string author;
