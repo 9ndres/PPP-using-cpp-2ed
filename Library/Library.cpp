@@ -17,14 +17,26 @@ Book::Book(const std::string& a, const std::string& t, const ISBN& is)
 			throw Invalid{};
 		}
 	}
-	catch (Invalid& e) {
+	catch (Invalid&) {
 		std::cerr << "Invalid ISBN identifier\n";
 	}
 }
-
-bool operator==(Book& a, Book& b) {
-	if (a.isbn.get_isbn() == b.isbn.get_isbn()) {
-		return true;
+ // Operators
+	bool operator==(Book& a, Book& b) {
+		if (a.isbn.get_isbn() == b.isbn.get_isbn()) {
+			return true;
+		}
+		return false;
 	}
-	return false;
-}
+
+	bool operator!=(Book& a, Book& b) {
+		if (!(a == b)) {
+			return true;
+		}
+		return false;
+	}
+
+	std::ostream& operator<<(std::ostream& os, const Book& a) {
+		os << a.title << '\n' << a.author;
+		return os;
+	}
