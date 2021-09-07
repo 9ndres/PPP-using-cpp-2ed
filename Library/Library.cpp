@@ -21,7 +21,12 @@ Book::Book(const std::string& a, const std::string& t, const ISBN& is)
 		std::cerr << "Invalid ISBN identifier\n";
 	}
 }
- // Operators
+
+Book::Book(const std::string& a, const std::string& t, Genre g, const ISBN& is) 
+	:author(a), title(t), gen(g), isbn(is)
+{
+}
+/****operators****/
 	bool operator==(Book& a, Book& b) {
 		if (a.isbn.get_isbn() == b.isbn.get_isbn()) {
 			return true;

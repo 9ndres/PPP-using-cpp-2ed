@@ -17,9 +17,14 @@ private:
 	bool valid = false;
 };
 
+enum class Genre {
+	fiction, nonfiction, periodical, biography, children
+};
+
 struct Book {
 	// Represent a book in the format author, title, and isbn
 	Book(const std::string& a, const std::string& t, const ISBN& is);
+	Book(const std::string& a, const std::string& t, Genre gen, const ISBN& is);
 	// getters
 	std::string get_title() const { return title; }
 	std::string get_author() const { return author; }
@@ -27,6 +32,7 @@ struct Book {
 	
 	// setters 
 	void set_copyright_date(Date d) { copyright_date = d; }
+	void set_book_genre(Genre g) { gen = g ; }
 	// operators
 	friend bool operator==(Book& a, Book& b);
 	friend bool operator!=(Book& a, Book& b);
@@ -36,4 +42,6 @@ private:
 	std::string author;
 	ISBN isbn;
 	Date copyright_date{ 2000, Month::apr, 10 };
+	Genre gen = Genre();
 };
+
