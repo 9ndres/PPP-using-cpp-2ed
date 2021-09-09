@@ -5,15 +5,18 @@
 #include "Library.h"
 
 class Library {
-	// Holds a register of the current library books 
-	// as well as its patrons and transactions;
-	std::vector<Book> vB;
-	// Todo: Everytime a user creates a new book/patron/transaction gets
-	// automatically pushed to its respective vector
-	std::vector<Patron> vP;
-	std::vector<Transactions> vT;
+	std::vector<Book> vb;
+	std::vector<Patron> vp;
+	std::vector<Transaction> vt;
 };
 
-struct Transactions {
 
+struct Transaction {
+	Transaction(const Book& rb, const Patron& rp, const Date& rd)
+		:reg_book(rb), reg_patr(rp), reg_date(rd)
+	{
+	}
+Book reg_book;
+	Patron reg_patr;
+	Date reg_date;
 };
