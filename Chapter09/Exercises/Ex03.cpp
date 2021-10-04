@@ -28,7 +28,7 @@ void Name_pairs::read_ages() {
 
 std::ostream& operator<<(std::ostream& os, const Name_pairs& nmp) {
    // print x for both vectors; age and name must have
-   // the same size ::read_ages ensures that this requirement is met
+   // the same size ::read_ages ensures that this is met
 
    if(!nmp.name.size()) {
       throw; // Don't print empty vectors
